@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supernatural- Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Supernatural</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#cast">Elenco</a></li>
+                <li><a href="#form">Inscreva-se</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="banner">
+        <img src="./img/Teste.jpg "  alt="Banner Matrix">
+    </section>
+
+    <section id="about">
+        <h2>Sobre Supernatural</h2>
+        <p>Supernatural é uma série de televisão americana de drama sobrenatural criada por Eric Kripke. <br>A série estreou em 2005 e segue os irmãos Sam e Dean Winchester enquanto caçam ,monstros e outras criaturas sobrenaturais.
+        Sam é interpretado por Jared Padalecki e Dean é interpretado por Jensen Ackles. <br>A série é conhecida por sua mitologia complexa e episódios envolventes.</p>
+    </section>
+
+    <section id="cast">
+        <h2>Elenco de Supernatural</h2>
+        <ul>
+            <li>Jared Padalecki - Sam Winchester</li>
+            <li>Jensen Ackles - Dean Winchester</li>
+            <li>Misha Collins - Castiel</li>
+            <li>Mark Sheppard - Crowley</li>
+        </ul>
+    </section>
+
+    <section id="form">
+        <h2>Cadastre-se para receber atualizações</h2>
+        <form id="signupForm" action="#" method="post">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit" id="submitBtn">Cadastrar</button>
+        </form>
+        <p id="message"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BBC Studios. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        // elementos do formulário
+        var form = document.getElementById("signupForm");
+        var nameInput = document.getElementById("name");
+        var emailInput = document.getElementById("email");
+        var passwordInput = document.getElementById("password");
+        var message = document.getElementById("message");
+
+        // Função valida  formulário
+        function validateForm(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            // Verifica se os campos estão preenchidos
+            if (nameInput.value === "" || emailInput.value === "" || passwordInput.value === "") {
+                message.textContent = "Por favor, preencha todos os campos.";
+                return;
+            }
+
+            // Verifica se o email é válido
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;    //expressão regular
+            if (!emailPattern.test(emailInput.value)) {
+                message.textContent = "Por favor, insira um email válido.";
+                return;
+            }
+
+            // validações passarem, exibir uma mensagem de sucesso
+            message.textContent = "Cadastro realizado com sucesso!";
+        }
+
+        // Adiciona um evento de envio ao formulário
+        form.addEventListener("submit", validateForm);
+    </script>
+    
+</body>
+</html>
